@@ -44,7 +44,7 @@ public class Disciplina {
 
 		System.out.println("Qual disciplina deseja obter o resultado?");
 		String nome = scan.nextLine();
-		String nomeArquivo = nome + ".txt";
+		String nomeArquivo = "Gabarito_" + nome + ".txt";
 
 		File pasta = new File(caminho);
 		if (pasta.exists() && pasta.isDirectory()) {

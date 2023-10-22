@@ -28,13 +28,21 @@ public class Aluno implements Comparable<Aluno> {
         return this.nome.compareTo(outroAluno.nome);
     }
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public int getPontuacao() {
-        return pontuacao;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getPontuacao() {
+		return pontuacao;
+	}
+
+	public void setPontuacao(int pontuacao) {
+		this.pontuacao = pontuacao;
+	}
 
 	public void compararGabaritoResposta() {
 	    List<String> respostasDosAlunos = new ArrayList<>();
@@ -186,7 +194,16 @@ public class Aluno implements Comparable<Aluno> {
 	}
 
 	public void criarArquivoOrdemPontuacao(List<String> nomesDosAlunos, List<Integer> pontuacoes, String nome) {
-	    Collections.sort(pontuacoes, Collections.reverseOrder());
+	    List<Aluno> alunos = new ArrayList<>();
+
+	    // Preencha a lista de alunos
+	    for (int i = 0; i < nomesDosAlunos.size(); i++) {
+	        Aluno aluno = new Aluno(nomesDosAlunos.get(i), pontuacoes.get(i));
+	        alunos.add(aluno);
+	    }
+
+	    // Ordene a lista de alunos por pontuação (em ordem decrescente)
+	    Collections.sort(alunos, (a1, a2) -> Integer.compare(a2.getPontuacao(), a1.getPontuacao()));
 
 	    String caminhoArquivoSaida = "C:\\Users\\ianjo\\OneDrive\\Área de Trabalho\\POO\\arq\\" + nome + "_ordemPontuacao.txt";
 
@@ -199,8 +216,9 @@ public class Aluno implements Comparable<Aluno> {
 
 	        PrintWriter writer = new PrintWriter(arquivoSaida);
 
-	        for (int i = 0; i < nomesDosAlunos.size(); i++) {
-	            String linha = (i + 1) + "- " + nomesDosAlunos.get(i) + ": " + pontuacoes.get(i);
+	        for (int i = 0; i < alunos.size(); i++) {
+	            Aluno aluno = alunos.get(i);
+	            String linha = (i + 1) + "- " + aluno.getNome() + ": " + aluno.getPontuacao();
 	            writer.println(linha);
 	        }
 

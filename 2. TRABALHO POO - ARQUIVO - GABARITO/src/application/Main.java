@@ -53,6 +53,7 @@ public class Main {
 				break;
 			default:
 				System.out.println("Opção inválida. Tente novamente.");
+				break;
 			}
 		} while (opcao != 0);
 	}

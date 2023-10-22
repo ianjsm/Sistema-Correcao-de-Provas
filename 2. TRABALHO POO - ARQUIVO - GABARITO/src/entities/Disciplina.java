@@ -77,7 +77,7 @@ public class Disciplina {
 	            @Override
 	            public boolean accept(File dir, String name) {
 	                // Filtrar apenas arquivos .txt que não são gabaritos
-	                return name.endsWith(".txt") && !name.startsWith("Gabarito_");
+	                return name.endsWith(".txt") && !name.startsWith("Gabarito_") && !name.contains("ordem");
 	            }
 	        });
 

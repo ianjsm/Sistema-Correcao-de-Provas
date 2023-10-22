@@ -40,9 +40,11 @@ public class Main {
 				disciplina.definirGabaritoFinal();
 				break;
 			case 4:
+				disciplina.listarArquivosDisciplinas();
 				aluno.compararGabaritoResposta();
 				break;
 			case 5:
+				disciplina.listarArquivosDisciplinas();
 				disciplina.buscarDisciplina();
 				break;
 			case 0:

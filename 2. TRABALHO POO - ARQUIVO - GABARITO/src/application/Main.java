@@ -35,7 +35,6 @@ public class Main {
 				disciplina.adicionarAlunoRespostas();
 				break;
 			case 3:
-				LimparTerminal.limparTerminal();
 				disciplina.listarArquivosDisciplinas();
 				disciplina.definirGabaritoFinal();
 				break;

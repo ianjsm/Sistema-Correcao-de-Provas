@@ -50,9 +50,9 @@ public class Aluno implements Comparable<Aluno> {
 
 	public void compararGabaritoResposta() {
 		List<String> respostasDosAlunos = new ArrayList<>();
-		List<Integer> pontuacoes = new ArrayList<>(); // Lista para armazenar as pontuações dos alunos
-		List<String> nomesDosAlunos = new ArrayList<>(); // Lista para armazenar os nomes dos alunos
-		List<Aluno> alunos = new ArrayList<>(); // Lista para armazenar nomes e notas
+		List<Integer> pontuacoes = new ArrayList<>();
+		List<String> nomesDosAlunos = new ArrayList<>(); 
+		List<Aluno> alunos = new ArrayList<>();
 		int acertos = 0;
 		Scanner teclado = new Scanner(System.in);
 
@@ -62,7 +62,6 @@ public class Aluno implements Comparable<Aluno> {
 				+ ".txt";
 		String caminhoArquivoRespostas = "C:\\Users\\ianjo\\OneDrive\\Área de Trabalho\\POO\\arq\\" + nome + ".txt";
 
-		// Crie um StringBuilder para armazenar o conteúdo do arquivo
 		StringBuilder conteudo = new StringBuilder();
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(caminhoArquivoGabarito))) {
@@ -79,7 +78,6 @@ public class Aluno implements Comparable<Aluno> {
 		try (BufferedReader reader = new BufferedReader(new FileReader(caminhoArquivoRespostas))) {
 			String linhaAtual;
 			while ((linhaAtual = reader.readLine()) != null) {
-				// Dividir a linha em respostas e nome do aluno usando o tab como separador
 				String[] partes = linhaAtual.split("\t");
 				if (partes.length == 2) {
 					String respostas = partes[0];
@@ -106,7 +104,6 @@ public class Aluno implements Comparable<Aluno> {
 			e.printStackTrace();
 		}
 
-		// Agora, vamos imprimir os acertos para cada aluno
 		for (int i = 0; i < pontuacoes.size(); i++) {
 			acertos = pontuacoes.get(i);
 			String nomeAluno = nomesDosAlunos.get(i);
@@ -118,6 +115,7 @@ public class Aluno implements Comparable<Aluno> {
 		System.out.println(mediaTurma);
 		System.out.println();
 		System.out.println();
+		Disciplina disciplina = new Disciplina();
 		//ordenarAlfabetica(nomesDosAlunos, pontuacoes);
 		 criarArquivoOrdemAlfabetica(alunos, nome);
 		System.out.println();
@@ -164,7 +162,6 @@ public class Aluno implements Comparable<Aluno> {
 	}
 
 	public void criarArquivoOrdemAlfabetica(List<Aluno> alunos, String nome) {
-	    // Ordene a lista de alunos em ordem alfabética
 	    Collections.sort(alunos);
 
 	    String caminhoArquivoSaida = "C:\\Users\\ianjo\\OneDrive\\Área de Trabalho\\POO\\arq\\" + nome + "_ordemAlfabetica.txt";
@@ -194,7 +191,6 @@ public class Aluno implements Comparable<Aluno> {
 	}
 
 	public void criarArquivoOrdemPontuacao(List<Aluno> alunos, String nome) {
-	    // Ordene a lista de alunos por pontuação em ordem decrescente
 	    Collections.sort(alunos, (a1, a2) -> Integer.compare(a2.getPontuacao(), a1.getPontuacao()));
 
 	    String caminhoArquivoSaida = "C:\\Users\\ianjo\\OneDrive\\Área de Trabalho\\POO\\arq\\" + nome + "_ordemPontuacao.txt";

@@ -72,7 +72,7 @@ public class Aluno implements Comparable<Aluno> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// Agora, você tem o conteúdo do arquivo do gabarito no StringBuilder
+		
 		String conteudoDoArquivo = conteudo.toString();
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(caminhoArquivoRespostas))) {

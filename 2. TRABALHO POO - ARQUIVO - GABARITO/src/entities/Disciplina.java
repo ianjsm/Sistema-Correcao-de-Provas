@@ -106,6 +106,7 @@ public class Disciplina {
 	        boolean adicionarMaisAlunos = true;
 
 	        while (adicionarMaisAlunos) {
+	        	System.out.println();
 	            System.out.print("Respostas do aluno:");
 	            System.out.println();
 	            try (FileWriter writer = new FileWriter(arquivo, true);
